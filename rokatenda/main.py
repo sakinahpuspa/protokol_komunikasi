@@ -27,10 +27,6 @@ with open("config.yaml", "r") as ymlfile:
 newpath = str((datetime.utcnow()).strftime("%Y%m")) + "/"
 tanggal = str((datetime.utcnow()).strftime("%Y%m%d"))
 
-akuisisi_logger = setup_logger('akuisisi_logger', newpath + cfg["path"]["folder_Log"] + cfg["TIPEOBU"]["LOKASI"][2] + cfg["path"]["akuisisi_log"] + tanggal + '.log')
-parsing_logger = setup_logger('parsing_logger', newpath + cfg["path"]["folder_Log"] + cfg["TIPEOBU"]["LOKASI"][2] + cfg["path"]["parsing_log"] + tanggal + '.log')
-mqtt_logger = setup_logger('mqtt_logger', newpath + cfg["path"]["folder_Log"] + cfg["TIPEOBU"]["LOKASI"][2] + cfg["path"]["mqtt_log"] + tanggal + '.log')
-
 # queue dari BPR untuk dijadikan input Proses TDA
 queueACL_OBU1 = Queue()
 queueACL_OBU2 = Queue()
@@ -301,10 +297,12 @@ if not os.path.exists(newpath):
     os.makedirs(newpath + cfg["path"]["final_log"])
     os.makedirs(newpath + cfg["path"]["folder_Log"])
     print("make folder success")
-    akuisisi_logger.info("make folder success")
 else:
     print("folder created")
-    akuisisi_logger.info("folder created")
+
+akuisisi_logger = setup_logger('akuisisi_logger', newpath + cfg["path"]["folder_Log"] + cfg["TIPEOBU"]["LOKASI"][2] + cfg["path"]["akuisisi_log"] + tanggal + '.log')
+parsing_logger = setup_logger('parsing_logger', newpath + cfg["path"]["folder_Log"] + cfg["TIPEOBU"]["LOKASI"][2] + cfg["path"]["parsing_log"] + tanggal + '.log')
+mqtt_logger = setup_logger('mqtt_logger', newpath + cfg["path"]["folder_Log"] + cfg["TIPEOBU"]["LOKASI"][2] + cfg["path"]["mqtt_log"] + tanggal + '.log')
 
 akuisisi_logger.info("Start Process")
 
