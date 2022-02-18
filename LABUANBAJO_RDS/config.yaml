@@ -1,0 +1,56 @@
+TIPEOBU:
+  FINALLOKASI:
+  - LBB01
+  - LBB02
+  LOKASI: LBB_
+  OBU:
+  - OBU1
+  - OBU2
+  SENSOR:
+  - ACC
+  - BPR
+  - INKLINOMETER
+  - SEISMOMETER
+  - ENVIRONMENT SENSOR
+  - BAJO
+  TIPESENSOR:
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+  - '14'
+mqtt:
+  broker:
+  - 202.46.10.7
+  - 202.46.242.20
+  internet: 8.8.8.8
+  password: MosquittoPTIK
+  port: 1883
+  qoslevel: 1
+  topic:
+  - LABUANBAJO/RAW/OBU1/RDS
+  - LABUANBAJO/RAW/OBU2/RDS
+  username: rdsPTIK
+obuAddressList:
+  IP:
+  - 192.168.14.103
+  - 192.168.14.104
+  PORT:
+  - 10002
+  - 10001
+other:
+  delimiter1: ','
+  delimiter2: '*'
+  restart:
+  - 'False'
+  - 'False'
+path:
+  akuisisi_log: akuisisi_log_
+  error_log: data_raw_error/
+  file_txt: .txt
+  fileraw_txt: _raw.txt
+  final_log: data_final/
+  folder_Log: logprocess/
+  mqtt_log: mqtt_log_
+  parsing_log: parsing_log_
+  raw_log: data_raw/
